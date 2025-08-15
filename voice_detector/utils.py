@@ -1,5 +1,18 @@
 import csv
 import os
+import datetime
+
+def _format_time(seconds):
+    """
+    Formats seconds into a HH:MM:SS string.
+
+    Args:
+        seconds (float): The time in seconds.
+
+    Returns:
+        str: The formatted time string.
+    """
+    return str(datetime.timedelta(seconds=seconds))
 
 def save_timestamps_to_csv(timestamps, output_path):
     """
@@ -14,7 +27,8 @@ def save_timestamps_to_csv(timestamps, output_path):
         with open(output_path, 'w', newline='') as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow(['start_time', 'end_time'])
-            writer.writerows(timestamps)
+            for start, end in timestamps:
+                writer.writerow([_format_time(start), _format_time(end)])
         print(f"Timestamps saved to {output_path}")
     except Exception as e:
         print(f"Error saving timestamps to CSV: {e}")
