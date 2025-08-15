@@ -15,8 +15,8 @@ This repository provides a tool to detect a specific person's voice in a video a
 1.  **Clone the repository:**
 
     ```bash
-    git clone https://github.com/your-username/voice-activity-detection.git
-    cd voice-activity-detection
+    git clone https://github.com/Metokarski/detect_voice_in_video_and_return_timestamps.git
+    cd detect_voice_in_video_and_return_timestamps
     ```
 
 2.  **Create a virtual environment and install dependencies:**
