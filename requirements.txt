@@ -1,0 +1,7 @@
+pyannote.audio
+torch
+torchaudio
+ffmpeg-python
+python-dotenv
+numpy
+scipy
