@@ -40,7 +40,7 @@ def identify_speaker(diarization, audio_path, reference_path, threshold=0.8):
         for segment, _, _ in diarization.itertracks(yield_label=True):
             subsegment_waveform = main_waveform[:, int(segment.start * 16000):int(segment.end * 16000)]
             
-            if subsegment_waveform.shape[1] < 1600:
+            if subsegment_waveform.shape[1] < 24000:
                 continue
 
             with torch.no_grad():
