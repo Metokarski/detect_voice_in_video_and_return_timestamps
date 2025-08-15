@@ -25,6 +25,8 @@ def identify_speaker(diarization, audio_path, reference_path, threshold=0.8):
 
         # Compute reference embedding
         ref_waveform, sample_rate = torchaudio.load(reference_path)
+        if ref_waveform.shape[0] > 1:
+            ref_waveform = torch.mean(ref_waveform, dim=0, keepdim=True)
         if sample_rate != 16000:
             ref_waveform = torchaudio.transforms.Resample(orig_freq=sample_rate, new_freq=16000)(ref_waveform)
         
